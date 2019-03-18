@@ -5808,7 +5808,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj",
+      "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj",
       "MSTest.TestAdapter >= 1.3.2",
       "MSTest.TestFramework >= 1.3.2",
       "Microsoft.NET.Test.Sdk >= 15.9.0",
@@ -5822,11 +5822,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CoinTest\\CoinTest.csproj",
+      "projectUniqueName": "E:\\Tess\\Documents\\CurrencyMidTerm\\CoinTest\\CoinTest.csproj",
       "projectName": "CoinTest",
-      "projectPath": "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CoinTest\\CoinTest.csproj",
+      "projectPath": "E:\\Tess\\Documents\\CurrencyMidTerm\\CoinTest\\CoinTest.csproj",
       "packagesPath": "C:\\Users\\Tess\\.nuget\\packages\\",
-      "outputPath": "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CoinTest\\obj\\",
+      "outputPath": "E:\\Tess\\Documents\\CurrencyMidTerm\\CoinTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5845,8 +5845,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj": {
-              "projectPath": "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj"
+            "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj": {
+              "projectPath": "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj"
             }
           }
         }
@@ -5890,8 +5890,8 @@
     {
       "code": "NU1104",
       "level": "Error",
-      "message": "Unable to find project 'E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj",
+      "message": "Unable to find project 'E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "E:\\Tess\\Documents\\CurrencyMidTerm\\CurrencyMidTerm\\CurrencyMidTerm.csproj",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
       ]
