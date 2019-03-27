@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CurrencyMidTerm
 {
+    [Serializable]
     public abstract class Coin:ICoin
     {
         public double MonetaryValue { get; set; }

@@ -4,9 +4,10 @@ using System.Text;
 
 namespace CurrencyMidTerm
 {
+    [Serializable]
     public abstract class USCoin:Coin
     {
-        public USCoinMintMark MintMark;
+        public USCoinMintMark MintMark { get; set; }
 
 
         public USCoin():this(USCoinMintMark.D)

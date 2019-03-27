@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CurrencyMidTerm
 {
+    [Serializable]
     public class HalfDollar : USCoin
     {
         public HalfDollar():base()

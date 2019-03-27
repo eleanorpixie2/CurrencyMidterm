@@ -21,21 +21,22 @@ namespace CurrencyMidTerm
     /// </summary>
     public partial class MainWindow : Window
     {
+        CurrencyRepo change = new CurrencyRepo();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-
-        //loads the user control
-        private void ChangeViewControl_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CurrencyExchangeWPF viewControl = new CurrencyExchangeWPF(new CurrencyRepo());
+            RepoWindow repoWin = new RepoWindow(change);
+            repoWin.Show();
+        }
 
-            this.DataContext = viewControl;
-            CurrencyView.DataContext = viewControl;
-
-
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CreateChangeWindow changeWin = new CreateChangeWindow(change);
+            changeWin.Show();
         }
     }
 }

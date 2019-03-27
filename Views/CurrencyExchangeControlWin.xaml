@@ -12,14 +12,21 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding}" />
+                        <TextBlock Text="{Binding Path=Name}" />
+                        <TextBlock Text="  " />
+                        <TextBlock Text="{Binding Path=MonetaryValue}" />
+                        <TextBlock Text="  " />
+                        <TextBlock Text="{Binding Path=Year}" />
+                        <TextBlock Text="  " />
+                        <TextBlock Text="{Binding Path=MintMark}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="239,47,0,0" TextWrapping="Wrap" Text="{Binding Amount, Mode=TwoWay}" VerticalAlignment="Top" Width="73"/>
-        <Button Content="Get Change" HorizontalAlignment="Left" Margin="497,47,0,0" VerticalAlignment="Top" Width="117" Height="28" Command="{Binding GetChange}"/>
+        <TextBox HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="28" Margin="239,47,0,0" TextWrapping="Wrap" Text="{Binding Amount, Mode=TwoWay}" VerticalAlignment="Top" Width="73"/>
+        <Button Content="Get Change" HorizontalAlignment="Left" Margin="414,47,0,0" VerticalAlignment="Top" Width="117" Height="28" Command="{Binding GetChange}"/>
         <Label Content="Amount to Get Change For:" HorizontalAlignment="Left" Margin="78,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-5.478,0.483"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="565,47,0,0" VerticalAlignment="Top" Width="97" Height="26" Command="{Binding Save}"/>
 
     </Grid>
 </UserControl>

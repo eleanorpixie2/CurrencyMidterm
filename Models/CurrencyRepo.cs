@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace CurrencyMidTerm
 {
+    [Serializable]
     public class CurrencyRepo:ICurrencyRepo
     {
        public List<ICoin> Coins { get; set; }
@@ -28,6 +35,7 @@ namespace CurrencyMidTerm
             CurrencyRepo temp = new CurrencyRepo();
             while(Amount>0)
             {
+                Amount = Math.Round(Amount, 2);
                 if (Amount >= 1)
                 {
                     DollarCoin dollar = new DollarCoin();
@@ -64,10 +72,7 @@ namespace CurrencyMidTerm
                     temp.AddCoin(penny);
                     Amount -= .01;
                 }
-                else
-                {
-                   Amount=Math.Round(Amount, 2);
-                }
+                
             }
             return temp;
         }
@@ -171,6 +176,53 @@ namespace CurrencyMidTerm
                 temp = new CurrencyRepo();
             }
             return temp;
+        }
+
+        public void ReduceCoins()
+        {
+            double Amount = TotalValue();
+            Coins = new List<ICoin>();
+            while (Amount > 0)
+            {
+                Amount = Math.Round(Amount, 2);
+                if (Amount >= 1)
+                {
+                    DollarCoin dollar = new DollarCoin();
+                    AddCoin(dollar);
+                    Amount--;
+                }
+                else if (Amount >= .5)
+                {
+                    HalfDollar dollar = new HalfDollar();
+                    AddCoin(dollar);
+                    Amount -= .5;
+                }
+                else if (Amount >= .25)
+                {
+                    Quarter quater = new Quarter();
+                    AddCoin(quater);
+                    Amount -= .25;
+                }
+                else if (Amount >= .1)
+                {
+                    Dime dime = new Dime();
+                    AddCoin(dime);
+                    Amount -= .1;
+                }
+                else if (Amount >= .05)
+                {
+                    Nickel nickel = new Nickel();
+                    AddCoin(nickel);
+                    Amount -= .05;
+                }
+                else if (Amount >= .01)
+                {
+                    Penny penny = new Penny();
+                    AddCoin(penny);
+                    Amount -= .01;
+                }
+                
+            }
         }
 
         public ICoin RemoveCoin(ICoin c)

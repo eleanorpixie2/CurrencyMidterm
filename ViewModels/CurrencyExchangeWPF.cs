@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +17,19 @@ namespace CurrencyMidTerm.ViewModels
         CurrencyRepo repo;
 
         public ICommand GetChange { get; set; }
+        public ICommand Save { get; set; }
 
         public CurrencyExchangeWPF(CurrencyRepo change)
         {
             repo = change;
             GetChange = new WPFExchangeCommand(ExecuteCommandGetChange, CanExecuteCommandGetChange);
+            Save = new WPFExchangeCommand(ExecuteCommandSave, CanExecuteCommandSave);
+            if(repo.Coins.Count>0)
+            {
+                Amount = repo.TotalValue();
+                RaisePropertyChanged("Amount");
+                RaisePropertyChanged("Coins");
+            }
         }
 
         private bool CanExecuteCommandGetChange(object parameter)
@@ -30,20 +41,35 @@ namespace CurrencyMidTerm.ViewModels
         private void ExecuteCommandGetChange(object parameter)
         {
             CurrencyRepo tempRepo=(CurrencyRepo)CurrencyRepo.CreateChange(Amount);
-            repo.Coins = tempRepo.Coins;
-            List<string> tempStrings = new List<string>();
-            foreach(ICoin c in repo.Coins)
-            {
-                tempStrings.Add(c.About());
-            }
-            Coins = tempStrings;
+            Coins = tempRepo.Coins;
             RaisePropertyChanged("Coins");
         }
 
-        public List<string> Coins
+        private bool CanExecuteCommandSave(object parameter)
         {
-            get;
-            set;
+            //makes sure the command can execute
+            return true;
+        }
+
+        private void ExecuteCommandSave(object parameter)
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(@"...\Repo.txt", FileMode.Create, FileAccess.Write);
+
+            formatter.Serialize(stream, repo);
+            stream.Close();
+        }
+
+        public List<ICoin> Coins
+        {
+            get
+            {
+                return repo.Coins;
+            }
+            set
+            {
+                repo.Coins = value;
+            }
         }
 
         public double Amount

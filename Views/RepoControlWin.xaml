@@ -5,8 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CurrencyMidTerm.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="CurrencyRepo">
     <Grid>
-            
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="271" Margin="51,140,0,0" Height="36" 
+                  ItemsSource="{Binding TypesOfCoin}" SelectedItem="{Binding SelectedCoin}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+
+        </ComboBox>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="579,140,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.277,-0.914" Height="36" Command="{Binding Add}"/>
+        <TextBox HorizontalAlignment="Left" Height="36" Margin="369,140,0,0" TextWrapping="Wrap" Text="{Binding NumberCoinsToAdd,Mode=TwoWay}" VerticalAlignment="Top" Width="77"/>
+        <TextBlock  HorizontalAlignment="Left" TextAlignment="Center" Height="28" Margin="391,29,0,0" TextWrapping="Wrap" Text="{Binding TotalAmount}" VerticalAlignment="Top" Width="152"/>
+        <Label Content="Repo Value" HorizontalAlignment="Left" Margin="249,29,0,0" VerticalAlignment="Top" Width="123" Height="28"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="579,329,0,0" VerticalAlignment="Top" Width="113" Height="36" Command="{Binding Save}"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="579,269,0,0" VerticalAlignment="Top" Width="113" Height="36" Command="{Binding Load}"/>
+        <Button Content="New" HorizontalAlignment="Left" Margin="579,211,0,0" VerticalAlignment="Top" Width="113" Height="36" Command="{Binding NewRepo}"/>
+
     </Grid>
 </UserControl>

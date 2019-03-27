@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\RepoWindow.xaml.cs">
+      <DependentUpon>RepoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateChangeWindow.xaml.cs">
+      <DependentUpon>CreateChangeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CurrencyExchangeWPF.cs" />
     <Compile Include="ViewModels\RepoWPF.cs" />
     <Compile Include="Views\CurrencyExchangeControlWin.xaml.cs">
@@ -63,6 +69,14 @@
     <Compile Include="Views\RepoControlWin.xaml.cs">
       <DependentUpon>RepoControlWin.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\RepoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreateChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

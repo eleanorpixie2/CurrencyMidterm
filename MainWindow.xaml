@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <views:CurrencyExchangeControlWin x:Name="CurrencyView" Loaded="ChangeViewControl_Loaded" Height="331"/>
+        <Button Content="Edit Repo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="278,189,0,0" Height="35" Click="Button_Click"/>
+        <Button Content="Get Change" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="278,255,0,0" Height="35" Click="Button_Click_1"/>
+        <Label Content="Choose a Window:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,117,0,0" Width="230"/>
 
-        </StackPanel>
     </Grid>
 </Window>
