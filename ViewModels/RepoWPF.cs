@@ -63,8 +63,14 @@ namespace CurrencyMidTerm.ViewModels
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(@"...\Repo.txt", FileMode.Open, FileAccess.Read);
-            repo = (CurrencyRepo)formatter.Deserialize(stream);
+            CurrencyRepo temp = (CurrencyRepo)formatter.Deserialize(stream);
             stream.Close();
+            //makes sure that the coins are added to the global repo so that the other window/view model can 
+            //see the coins add in this window
+            foreach(ICoin c in temp.Coins)
+            {
+                repo.AddCoin(c);
+            }
             //reduce the number of coins when the repo is loaded
             repo.ReduceCoins();
             RaisePropertyChanged("TotalAmount");
