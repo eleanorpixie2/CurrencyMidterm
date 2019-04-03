@@ -14,16 +14,22 @@ namespace CurrencyMidTerm.ViewModels
 {
     class CurrencyExchangeWPF : INotifyPropertyChanged
     {
+        //repo object
         CurrencyRepo repo;
 
+        //Commands to get change for amount and to save the repo
         public ICommand GetChange { get; set; }
         public ICommand Save { get; set; }
 
+        //constructor
         public CurrencyExchangeWPF(CurrencyRepo change)
         {
+            //set the repo object to passed in repo
             repo = change;
+            //intialize the commands
             GetChange = new WPFExchangeCommand(ExecuteCommandGetChange, CanExecuteCommandGetChange);
             Save = new WPFExchangeCommand(ExecuteCommandSave, CanExecuteCommandSave);
+            //if the repo has already been edited then update the view
             if(repo.Coins.Count>0)
             {
                 Amount = repo.TotalValue();
@@ -40,8 +46,11 @@ namespace CurrencyMidTerm.ViewModels
 
         private void ExecuteCommandGetChange(object parameter)
         {
+            //Get the repo of the change created for amount given
             CurrencyRepo tempRepo=(CurrencyRepo)CurrencyRepo.CreateChange(Amount);
+            //set the list of coins to the list of coins in the temp repo
             Coins = tempRepo.Coins;
+            //notify the change in the list
             RaisePropertyChanged("Coins");
         }
 
@@ -51,6 +60,7 @@ namespace CurrencyMidTerm.ViewModels
             return true;
         }
 
+        //serialize and write the repo to a file
         private void ExecuteCommandSave(object parameter)
         {
             IFormatter formatter = new BinaryFormatter();
@@ -60,6 +70,7 @@ namespace CurrencyMidTerm.ViewModels
             stream.Close();
         }
 
+        //a list of coins that sets and returns the repo's coin list
         public List<ICoin> Coins
         {
             get
@@ -72,6 +83,7 @@ namespace CurrencyMidTerm.ViewModels
             }
         }
 
+        //the amount to get change for
         public double Amount
         {
             get;

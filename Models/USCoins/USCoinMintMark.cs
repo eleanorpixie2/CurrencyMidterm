@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CurrencyMidTerm
 {
+    //mint mark enum
     public enum USCoinMintMark
     {
         P,

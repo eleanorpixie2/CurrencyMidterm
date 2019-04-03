@@ -28,7 +28,9 @@ namespace CurrencyMidTerm.ViewModels
         {
             //repo object
             repo = change;
-            ObservableCollection<ICoin> temp = new ObservableCollection<ICoin>()
+
+            //intialize the observable collection of coins for the drop down menu
+            TypesOfCoin = new ObservableCollection<ICoin>()
             {
                 new Penny(),
                 new Nickel(),
@@ -38,11 +40,10 @@ namespace CurrencyMidTerm.ViewModels
                 new DollarCoin()
             };
 
-            TypesOfCoin = temp;
+            //set the initial coin
+            SelectedCoin = TypesOfCoin[0];
 
-            SelectedCoin = temp[0];
-
-             //Commands
+             //Intialize Commands
             Load = new WPFRepoCommand(ExecuteCommandLoad, CanExecuteCommand);
             NewRepo = new WPFRepoCommand(ExecuteCommandNewRepo, CanExecuteCommand);
             Save = new WPFRepoCommand(ExecuteCommandSave, CanExecuteCommand);
@@ -57,13 +58,14 @@ namespace CurrencyMidTerm.ViewModels
             return true;
         }
 
-        //load a repo
+        //deserialize and load a repo from a file
         private void ExecuteCommandLoad(object parameter)
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(@"...\Repo.txt", FileMode.Open, FileAccess.Read);
             repo = (CurrencyRepo)formatter.Deserialize(stream);
             stream.Close();
+            //reduce the number of coins when the repo is loaded
             repo.ReduceCoins();
             RaisePropertyChanged("TotalAmount");
         }
