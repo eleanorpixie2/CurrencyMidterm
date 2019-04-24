@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\CurrencyMVC\CurrencyMVC\CurrencyMVC.csproj" />
     <ProjectReference Include="..\CurrencyMidTerm.csproj" />
   </ItemGroup>
 

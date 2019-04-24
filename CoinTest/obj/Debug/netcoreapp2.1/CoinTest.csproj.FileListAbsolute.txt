@@ -16,3 +16,5 @@ E:\Tess\Documents\CurrencyMidTerm\CoinTest\obj\Debug\netcoreapp2.1\CoinTest.Asse
 E:\Tess\Documents\CurrencyMidTerm\CoinTest\obj\Debug\netcoreapp2.1\CoinTest.csproj.CopyComplete
 E:\Tess\Documents\CurrencyMidTerm\CoinTest\obj\Debug\netcoreapp2.1\CoinTest.dll
 E:\Tess\Documents\CurrencyMidTerm\CoinTest\obj\Debug\netcoreapp2.1\CoinTest.pdb
+E:\GitHub\CurrencyMidterm\CoinTest\obj\Debug\netcoreapp2.1\CoinTest.dll
+E:\GitHub\CurrencyMidterm\CoinTest\obj\Debug\netcoreapp2.1\CoinTest.pdb
